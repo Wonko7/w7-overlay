@@ -1,0 +1,26 @@
+From 2dd5b2b777b689d99b99befd87da3a2b5805fff0 Mon Sep 17 00:00:00 2001
+From: William <William@undefined.re>
+Date: Thu, 13 Oct 2016 14:26:29 +0200
+Subject: [PATCH 2/2] rm stupid libressl test
+
+---
+ config.tests/unix/openssl/openssl.cpp | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/config.tests/unix/openssl/openssl.cpp b/config.tests/unix/openssl/openssl.cpp
+index d0b6cca..2b4c6d4 100644
+--- a/config.tests/unix/openssl/openssl.cpp
++++ b/config.tests/unix/openssl/openssl.cpp
+@@ -39,9 +39,6 @@
+ 
+ #include <openssl/ssl.h>
+ 
+-#if OPENSSL_VERSION_NUMBER-0 >= 0x10002000L && !defined(OPENSSL_NO_EC) && !defined(SSL_CTRL_SET_CURVES)
+-#  error "OpenSSL was reported as >= 1.0.2 but is missing required features, possibly it's libressl which is unsupported"
+-#endif
+ 
+ int main()
+ {
+-- 
+2.10.1
+
