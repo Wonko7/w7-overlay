@@ -4,9 +4,7 @@
 
 EAPI=6
 
-# TODO: need to bump stem to 3.5
-# PYTHON_COMPAT=(python{3_3,3_4,3_5})
-PYTHON_COMPAT=(python{3_3,3_4})
+PYTHON_COMPAT=(python{3_3,3_4,3_5})
 
 DISTUTILS_SINGLE_IMPL=true
 inherit distutils-r1
