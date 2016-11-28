@@ -10,7 +10,6 @@ DESCRIPTION="Lightweight and cross-platform clipboard history applet"
 HOMEPAGE="https://github.com/pvanek/qlipper"
 #SRC_URI="https://github.com/pvanek/qlipper/archive/5.0.0.tar.gz -> ${P}.tar.gz"
 EGIT_REPO_URI="https://github.com/pvanek/qlipper/"
-EGIT_BRANCH="instant_sync"
 
 LICENSE="GPL-2+"
 SLOT="0"
