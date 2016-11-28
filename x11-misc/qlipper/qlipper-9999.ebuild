@@ -27,7 +27,7 @@ DEPEND="${RDEPEND}
 	dev-qt/linguist-tools:5
 "
 
-PATCHES=( "${FILESDIR}/${PN}-5.0.0-build.patch" )
+#PATCHES=( "${FILESDIR}/${PN}-5.0.0-build.patch" )
 
 pkg_preinst() {
 	gnome2_icon_savelist
