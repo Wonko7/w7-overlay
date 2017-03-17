@@ -24,18 +24,10 @@ CDEPEND="
 	lxqt-base/liblxqt
 	media-sound/pulseaudio[glib]
 	dev-qt/qtdbus:5
-	dev-qt/qtwidgets:5"
+	dev-qt/qtwidgets:5
+	dev-util/lxqt-build-tools"
 DEPEND="${CDEPEND}
 	dev-qt/linguist-tools:5
 	virtual/pkgconfig
 	x11-misc/xdg-user-dirs"
 RDEPEND="${CDEPEND}"
-
-src_configure() {
-	local mycmakeargs=(
-		# workaround for missing cmake modules
-		# TODO: remove this once lxqt-base/liblxqt>10.0 hits the tree
-		-DCMAKE_MODULE_PATH="${FILESDIR}/cmake-find-modules"
-	)
-	cmake-utils_src_configure
-}
