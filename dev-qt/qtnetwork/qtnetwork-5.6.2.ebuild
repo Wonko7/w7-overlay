@@ -31,9 +31,8 @@ RDEPEND="${DEPEND}
 "
 
 PATCHES=(
-#	"${FILESDIR}/${PN}-5.5-socklen_t.patch" # bug 554556
-	"${FILESDIR}/0001-hasufel.patch" # 562050
-	"${FILESDIR}/0002-rm-stupid-libressl-test.patch"
+	"${FILESDIR}/0001-bsd.patch"
+	"${FILESDIR}/0002-p2.patch"
 )
 
 QT5_TARGET_SUBDIRS=(

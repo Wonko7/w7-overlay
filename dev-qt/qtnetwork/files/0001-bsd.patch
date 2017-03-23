@@ -1,0 +1,25 @@
+From 09d27d89273b1ca577bbfddd6bafec42fce596bb Mon Sep 17 00:00:00 2001
+From: William <William@undefined.re>
+Date: Thu, 23 Mar 2017 14:07:30 +0100
+Subject: [PATCH 1/2] bsd
+
+---
+ src/network/ssl/qsslcontext_openssl.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/network/ssl/qsslcontext_openssl.cpp b/src/network/ssl/qsslcontext_openssl.cpp
+index 68caaeb..347d2ba 100644
+--- a/src/network/ssl/qsslcontext_openssl.cpp
++++ b/src/network/ssl/qsslcontext_openssl.cpp
+@@ -340,7 +340,7 @@ init_context:
+ 
+     const QVector<QSslEllipticCurve> qcurves = sslContext->sslConfiguration.ellipticCurves();
+     if (!qcurves.isEmpty()) {
+-#if OPENSSL_VERSION_NUMBER >= 0x10002000L && !defined(OPENSSL_NO_EC)
++#if OPENSSL_VERSION_NUMBER >= 0x10002000L && !defined(OPENSSL_NO_EC) && !defined(LIBRESSL_VERSION_NUMBER)
+         // Set the curves to be used
+         if (q_SSLeay() >= 0x10002000L) {
+             // SSL_CTX_ctrl wants a non-const pointer as last argument,
+-- 
+2.12.0
+
