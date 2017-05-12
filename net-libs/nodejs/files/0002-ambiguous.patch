@@ -1,0 +1,25 @@
+From e481ddbee6f5b3d82c0206437e3b4945a1702d1c Mon Sep 17 00:00:00 2001
+From: William <William@undefined.re>
+Date: Fri, 12 May 2017 14:15:32 +0200
+Subject: [PATCH 2/2] ambiguous
+
+---
+ src/node_crypto.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/node_crypto.cc b/src/node_crypto.cc
+index 061466c31c..00e0f49f7a 100644
+--- a/src/node_crypto.cc
++++ b/src/node_crypto.cc
+@@ -719,7 +719,7 @@ static X509_STORE* NewRootCertStore() {
+     X509_STORE_set_default_paths(store);
+   } else {
+     for (X509 *cert : root_certs_vector) {
+-      X509_up_ref(cert);
++      node::crypto::X509_up_ref(cert);
+       X509_STORE_add_cert(store, cert);
+     }
+   }
+-- 
+2.12.2
+
