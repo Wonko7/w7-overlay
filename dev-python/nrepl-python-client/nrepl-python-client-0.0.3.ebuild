@@ -8,7 +8,6 @@ inherit distutils-r1
 
 KEYWORDS="~amd64"
 SRC_URI="https://github.com/clojure-vim/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-https://github.com/rust-lang/cargo/archive
 
 DESCRIPTION="Surprisingly, an nREPL client written in Python."
 HOMEPAGE=" https://github.com/clojure-vim/nrepl-python-client"
