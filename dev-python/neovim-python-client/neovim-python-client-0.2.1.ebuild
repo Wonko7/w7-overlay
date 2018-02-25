@@ -28,5 +28,5 @@ S="${WORKDIR}/python-client-${PV}"
 src_prepare() {
 	default
 	sed -i setup.py \
-		-e "s/msgpack>=0.5.0/msgpack-python>=0.5.0/"
+	    -e "s/msgpack>=0.5.0/msgpack-python>=0.5.0/"
 }
