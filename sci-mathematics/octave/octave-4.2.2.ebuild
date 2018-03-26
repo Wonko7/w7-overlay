@@ -1,9 +1,9 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-inherit autotools flag-o-matic fortran-2 java-pkg-opt-2 pax-utils toolchain-funcs
+inherit autotools flag-o-matic fortran-2 java-pkg-opt-2 pax-utils toolchain-funcs xdg-utils
 
 DESCRIPTION="High-level interactive language for numerical computations"
 LICENSE="GPL-3"
@@ -12,9 +12,9 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 SLOT="0/${PV}"
 IUSE="curl doc fftw +glpk gnuplot graphicsmagick gui hdf5 +imagemagick java
-	libressl opengl openssl portaudio postscript +qhull +qrupdate readline
+	libreessl opengl openssl portaudio postscript +qhull +qrupdate readline
 	sndfile +sparse static-libs X zlib"
-KEYWORDS="~amd64 ~arm hppa ~ppc ~ppc64 ~x86 ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 ~arm hppa ppc ppc64 x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 
 RDEPEND="
 	app-arch/bzip2
@@ -41,10 +41,10 @@ RDEPEND="
 		x11-libs/gl2ps:0=
 		virtual/glu
 	)
-	openssl? (
+    openssl? (
 		libressl? ( dev-libs/libressl:0= )
 		!libressl? ( dev-libs/openssl:0= )
-	)
+    )
 	portaudio? ( media-libs/portaudio )
 	postscript? (
 		app-text/epstool
@@ -80,7 +80,7 @@ DEPEND="${RDEPEND}
 	doc? (
 		virtual/latex-base
 		dev-texlive/texlive-fontsrecommended
-		dev-texlive/texlive-genericrecommended
+		|| ( dev-texlive/texlive-plaingeneric dev-texlive/texlive-genericrecommended )
 		dev-texlive/texlive-metapost
 	)
 	sys-apps/texinfo
@@ -90,12 +90,12 @@ DEPEND="${RDEPEND}
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.2.0-texi.patch
 	"${FILESDIR}"/${PN}-4.2.0-disable-getcwd-path-max-test-as-it-is-too-slow.patch
-	"${FILESDIR}"/${PN}-4.2.0-imagemagick-configure.patch
+	"${FILESDIR}"/${P}-imagemagick-configure.patch
 	"${FILESDIR}"/${PN}-4.2.0-imagemagick.patch
 	"${FILESDIR}"/${PN}-4.2.0-pkgbuilddir.patch
-	"${FILESDIR}"/${PN}-4.2.0-ncurses-pkgconfig.patch
+	"${FILESDIR}"/${P}-ncurses-pkgconfig.patch
 	"${FILESDIR}"/${PN}-4.2.0-zlib-underlinking.patch
-	"${FILESDIR}"/${PN}-4.2.0-fix-qscintilla-detection.patch
+	"${FILESDIR}"/${P}-fix-qscintilla-detection.patch
 )
 
 src_prepare() {
@@ -178,4 +178,14 @@ src_install() {
 		java-pkg_regjar "${ED%/}/usr/share/${PN}/${PV}/m/java/octave.jar"
 	echo "LDPATH=${EPREFIX}/usr/$(get_libdir)/${PN}/${PV}" > 99octave || die
 	doenvd 99octave
+}
+
+pkg_postinst() {
+	xdg_mimeinfo_database_update
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_mimeinfo_database_update
+	xdg_desktop_database_update
 }
