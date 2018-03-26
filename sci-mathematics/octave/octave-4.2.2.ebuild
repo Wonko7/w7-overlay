@@ -12,7 +12,7 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 SLOT="0/${PV}"
 IUSE="curl doc fftw +glpk gnuplot graphicsmagick gui hdf5 +imagemagick java
-	libreessl opengl openssl portaudio postscript +qhull +qrupdate readline
+	libressl opengl openssl portaudio postscript +qhull +qrupdate readline
 	sndfile +sparse static-libs X zlib"
 KEYWORDS="amd64 ~arm hppa ppc ppc64 x86 ~x86-fbsd ~amd64-linux ~x86-linux"
 
