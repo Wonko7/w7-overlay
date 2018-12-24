@@ -30,7 +30,7 @@ RDEPEND="${DEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}"/${P}-libressl.patch
+	"${FILESDIR}"/libressl.patch
 )
 
 QT5_TARGET_SUBDIRS=(
