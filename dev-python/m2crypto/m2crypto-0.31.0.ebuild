@@ -38,7 +38,7 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 RESTRICT=test
 
 PATCHES=(
-	"${FILESDIR}/${PN}-libressl-version-check.patch"
+	"${FILESDIR}/${PN}-libressl.patch"
 )
 
 
