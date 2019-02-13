@@ -12,9 +12,12 @@ SRC_URI="https://github.com/sandstorm-io/capnproto/archive/v${PV}.tar.gz -> ${P}
 LICENSE="MIT"
 SLOT="0/070"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-IUSE="+ssl static-libs test"
+IUSE="+ssl libressl static-libs test"
 
-RDEPEND="ssl? ( dev-libs/openssl:0= )"
+RDEPEND="ssl? (
+	!libressl? ( dev-libs/openssl:0= )
+	libressl? ( dev-libs/libressl:0= )
+)"
 DEPEND="${RDEPEND} test? ( dev-cpp/gtest )"
 
 S=${WORKDIR}/${P}/c++
