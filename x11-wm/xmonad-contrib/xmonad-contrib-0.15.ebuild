@@ -26,7 +26,7 @@ RDEPEND="dev-haskell/extensible-exceptions:=[profile?]
 	dev-haskell/utf8-string:=[profile?]
 	>=dev-haskell/x11-1.6.1:=[profile?] <dev-haskell/x11-1.9:=[profile?]
 	>=dev-lang/ghc-7.6.1:=
-	>=x11-wm/xmonad-0.13:=[profile?] <x11-wm/xmonad-0.15:=[profile?]
+	>=x11-wm/xmonad-0.15:=[profile?] <x11-wm/xmonad-0.16:=[profile?]
 	xft? ( >=dev-haskell/x11-xft-0.2:=[profile?] )
 "
 DEPEND="${RDEPEND}
