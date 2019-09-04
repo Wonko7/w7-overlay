@@ -7,7 +7,8 @@ PYTHON_COMPAT=( python2_7 python3_6 )
 inherit eutils systemd distutils-r1
 
 DESCRIPTION="Salt is a remote execution and configuration manager"
-HOMEPAGE="http://saltstack.org/"
+HOMEPAGE="https://www.saltstack.com/resources/community/
+	https://github.com/saltstack"
 
 if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
@@ -22,8 +23,9 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="cherrypy ldap libcloud libressl libvirt gnupg keyring mako mongodb mysql neutron"
-IUSE+=" nova openssl portage profile redis selinux test timelib raet +zeromq vim-syntax"
+IUSE="cherrypy ldap libcloud libressl libvirt gnupg keyring mako mongodb mysql"
+IUSE+=" neutron nova openssl portage profile redis selinux test timelib raet"
+IUSE+=" +zeromq vim-syntax"
 
 RDEPEND="sys-apps/pciutils
 	dev-python/jinja[${PYTHON_USEDEP}]
@@ -34,15 +36,15 @@ RDEPEND="sys-apps/pciutils
 	>=dev-python/requests-1.0.0[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	>=www-servers/tornado-4.2.1[${PYTHON_USEDEP}]
-	<www-servers/tornado-6.0[${PYTHON_USEDEP}]
+	<www-servers/tornado-5.0[${PYTHON_USEDEP}]
 	virtual/python-futures[${PYTHON_USEDEP}]
 	libcloud? ( >=dev-python/libcloud-0.14.0[${PYTHON_USEDEP}] )
 	mako? ( dev-python/mako[${PYTHON_USEDEP}] )
 	ldap? ( dev-python/python-ldap[${PYTHON_USEDEP}] )
 	libvirt? ( dev-python/libvirt-python[${PYTHON_USEDEP}] )
 	openssl? (
-		libressl? ( dev-libs/libressl:0= )
 		!libressl? ( dev-libs/openssl:0=[-bindist] )
+		libressl? ( dev-libs/libressl:0= )
 		dev-python/pyopenssl[${PYTHON_USEDEP}]
 	)
 	raet? (
@@ -56,12 +58,7 @@ RDEPEND="sys-apps/pciutils
 	)
 	cherrypy? ( >=dev-python/cherrypy-3.2.2[${PYTHON_USEDEP}] )
 	mongodb? ( dev-python/pymongo[${PYTHON_USEDEP}] )
-	portage? (
-		|| (
-			sys-apps/portage[${PYTHON_USEDEP}]
-			sys-apps/portage-mgorny[${PYTHON_USEDEP}]
-		)
-	)
+	portage? ( sys-apps/portage[${PYTHON_USEDEP}] )
 	keyring? ( dev-python/keyring[${PYTHON_USEDEP}] )
 	mysql? ( dev-python/mysql-python[$(python_gen_usedep 'python2*')] )
 	redis? ( dev-python/redis-py[${PYTHON_USEDEP}] )
@@ -97,9 +94,11 @@ REQUIRED_USE="|| ( raet zeromq )"
 RESTRICT="x86? ( test )"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2017.7.0-dont-realpath-tmpdir.patch"
-	"${FILESDIR}/${PN}-2019.2.0-tests.patch"
-	"${FILESDIR}/${PN}-2018.3.2-skip-zeromq-test-that-hangs.patch"
+	"${FILESDIR}/salt-2017.7.0-dont-realpath-tmpdir.patch"
+	"${FILESDIR}/salt-2019.2.0-tests.patch"
+	"${FILESDIR}/salt-2018.3.2-skip-zeromq-test-that-hangs.patch"
+	"${FILESDIR}/salt-2019.2.0-skip-tests-that-oom-machine.patch"
+	"${FILESDIR}/salt-2019.2.0-newer-deps.patch"
 )
 
 python_prepare() {
