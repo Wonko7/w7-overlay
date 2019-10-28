@@ -72,6 +72,7 @@ RDEPEND="sys-apps/pciutils
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 	test? (
 		>=dev-python/pytest-salt-2018.12.8[${PYTHON_USEDEP}]
+		>=dev-python/jsonschema-3.0[${PYTHON_USEDEP}]
 		dev-python/pytest-helpers-namespace[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}]
 		dev-python/pytest[${PYTHON_USEDEP}]
@@ -96,9 +97,9 @@ RESTRICT="x86? ( test )"
 PATCHES=(
 	"${FILESDIR}/salt-2017.7.0-dont-realpath-tmpdir.patch"
 	"${FILESDIR}/salt-2019.2.0-tests.patch"
-	"${FILESDIR}/salt-2018.3.2-skip-zeromq-test-that-hangs.patch"
 	"${FILESDIR}/salt-2019.2.0-skip-tests-that-oom-machine.patch"
-	"${FILESDIR}/salt-2019.2.0-newer-deps.patch"
+	"${FILESDIR}/salt-2019.2.2-newer-deps.patch"
+	"${FILESDIR}/salt-2019.2.2-workaround-broken-mock-on-py2.patch"
 )
 
 python_prepare() {
@@ -106,7 +107,6 @@ python_prepare() {
 	rm tests/unit/{test_zypp_plugins.py,utils/test_extend.py} || die
 	rm tests/unit/modules/test_{file,boto_{vpc,secgroup,elb}}.py || die
 	rm tests/unit/states/test_boto_vpc.py || die
-	rm tests/unit/modules/test_{kubernetes,vsphere}.py || die
 
 	# allow the use of the renamed msgpack
 	sed -i '/^msgpack/d' requirements/base.txt || die
