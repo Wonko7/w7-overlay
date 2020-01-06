@@ -21,6 +21,9 @@ IUSE=""
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 		dev-python/PyQt5[${PYTHON_USEDEP}]
 		dev-python/flask[${PYTHON_USEDEP}]
+		dev-python/werkzeug[${PYTHON_USEDEP}]
+		dev-python/urllib3[${PYTHON_USEDEP}]
+		dev-python/requests[${PYTHON_USEDEP}]
 		net-libs/stem[${PYTHON_USEDEP}]
 		${PYTHON_DEPS}"
 
