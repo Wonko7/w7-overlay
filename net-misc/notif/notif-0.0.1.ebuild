@@ -68,5 +68,5 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND=""
+DEPEND=">=net-libs/zeromq-4.1"
 RDEPEND=""
