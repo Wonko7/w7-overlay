@@ -53,7 +53,7 @@ zmq-0.9.2
 zmq-sys-0.11.0
 "
 
-inherit cargo
+inherit cargo systemd
 
 DESCRIPTION="route remote notifications to current desktop"
 # Double check the homepage as the cargo_metadata crate
@@ -70,3 +70,8 @@ IUSE=""
 
 DEPEND=">=net-libs/zeromq-4.1"
 RDEPEND=""
+
+src_install() {
+	default
+	systemd_dounit  "${FILESDIR}"/${PN}.service
+}
