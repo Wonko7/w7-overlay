@@ -72,6 +72,6 @@ DEPEND=">=net-libs/zeromq-4.1"
 RDEPEND=""
 
 src_install() {
-	default
+	cargo_src_install
 	systemd_dounit  "${FILESDIR}"/${PN}.service
 }
