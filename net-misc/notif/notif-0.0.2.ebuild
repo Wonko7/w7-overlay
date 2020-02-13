@@ -6,6 +6,7 @@
 EAPI=7
 
 CRATES="
+arc-swap-0.4.4
 arrayref-0.3.6
 arrayvec-0.5.1
 autocfg-0.1.7
@@ -30,7 +31,7 @@ libc-0.2.66
 log-0.4.8
 match_cfg-0.1.0
 metadeps-1.1.2
-notif-0.0.1
+notif-0.0.2
 pkg-config-0.3.17
 proc-macro2-1.0.8
 quote-1.0.2
@@ -40,6 +41,8 @@ rust-argon2-0.7.0
 rustc-demangle-0.1.16
 serde-1.0.104
 serde_derive-1.0.104
+signal-hook-0.1.13
+signal-hook-registry-1.2.0
 syn-1.0.14
 synstructure-0.12.3
 toml-0.2.1
