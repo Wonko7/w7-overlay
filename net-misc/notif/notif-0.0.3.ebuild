@@ -31,7 +31,7 @@ libc-0.2.66
 log-0.4.8
 match_cfg-0.1.0
 metadeps-1.1.2
-notif-0.0.2
+notif-0.0.3
 pkg-config-0.3.17
 proc-macro2-1.0.8
 quote-1.0.2
