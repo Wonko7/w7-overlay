@@ -2,7 +2,7 @@
 Description=notif server
 
 [Service]
-ExecStart=/usr/bin/notif --server
+ExecStart=/usr/bin/notif route
 Restart=always
 
 [Install]

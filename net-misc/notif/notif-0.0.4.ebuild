@@ -6,9 +6,11 @@
 EAPI=7
 
 CRATES="
+ansi_term-0.11.0
 arc-swap-0.4.4
 arrayref-0.3.6
 arrayvec-0.5.1
+atty-0.2.14
 autocfg-0.1.7
 backtrace-0.3.43
 backtrace-sys-0.1.32
@@ -17,6 +19,7 @@ bitflags-1.2.1
 blake2b_simd-0.5.10
 cc-1.0.50
 cfg-if-0.1.10
+clap-2.33.0
 constant_time_eq-0.1.5
 crossbeam-utils-0.7.0
 dirs-2.0.2
@@ -25,13 +28,14 @@ error-chain-0.10.0
 failure-0.1.6
 failure_derive-0.1.6
 getrandom-0.1.14
+hermit-abi-0.1.6
 hostname-0.3.0
 lazy_static-1.4.0
 libc-0.2.66
 log-0.4.8
 match_cfg-0.1.0
 metadeps-1.1.2
-notif-0.0.3
+notif-0.0.4
 pkg-config-0.3.17
 proc-macro2-1.0.8
 quote-1.0.2
@@ -43,11 +47,15 @@ serde-1.0.104
 serde_derive-1.0.104
 signal-hook-0.1.13
 signal-hook-registry-1.2.0
+strsim-0.8.0
 syn-1.0.14
 synstructure-0.12.3
+textwrap-0.11.0
 toml-0.2.1
 toml-0.5.6
+unicode-width-0.1.7
 unicode-xid-0.2.0
+vec_map-0.8.1
 wasi-0.9.0+wasi-snapshot-preview1
 winapi-0.3.8
 winapi-i686-pc-windows-gnu-0.4.0
