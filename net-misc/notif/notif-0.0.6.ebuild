@@ -45,12 +45,12 @@ lazy_static-1.4.0
 libc-0.2.66
 libflate-0.1.27
 libsodium-sys-0.2.5
-libzmq-0.2.1
+libzmq-0.2.2
 libzmq-sys-0.1.7+4.3.2
 linked-hash-map-0.5.2
 log-0.4.8
 match_cfg-0.1.0
-notif-0.0.5
+notif-0.0.6
 pkg-config-0.3.17
 proc-macro2-1.0.8
 quick-error-1.2.3
