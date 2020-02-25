@@ -19,8 +19,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 # TODO: check flask-httpauth on each vbump.
-DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
-		dev-python/PyQt5[${PYTHON_USEDEP}]
+DEPEND="dev-python/PyQt5[${PYTHON_USEDEP}]
 		dev-python/flask[${PYTHON_USEDEP}]
 		dev-python/werkzeug[${PYTHON_USEDEP}]
 		dev-python/urllib3[${PYTHON_USEDEP}]
