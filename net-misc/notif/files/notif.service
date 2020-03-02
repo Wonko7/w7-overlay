@@ -3,6 +3,7 @@ Description=notif server
 
 [Service]
 ExecStart=/usr/bin/notif route
+User=nobody
 Restart=always
 
 [Install]
