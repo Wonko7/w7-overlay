@@ -50,7 +50,7 @@ libzmq-sys-0.1.7+4.3.2
 linked-hash-map-0.5.2
 log-0.4.8
 match_cfg-0.1.0
-notif-0.0.9
+notif-0.0.10
 pkg-config-0.3.17
 proc-macro2-1.0.8
 quick-error-1.2.3
