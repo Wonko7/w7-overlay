@@ -10,13 +10,15 @@ HOMEPAGE="https://capnproto.org"
 SRC_URI="https://github.com/sandstorm-io/capnproto/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
-SLOT="0/070"
+SLOT="0/080"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-IUSE="+ssl libressl static-libs test"
+IUSE="+ssl libressl static-libs test zlib"
+RESTRICT="!test? ( test )"
 
 RDEPEND="ssl? (
 	!libressl? ( dev-libs/openssl:0= )
 	libressl? ( dev-libs/libressl:0= )
+	zlib? ( sys-libs/zlib:0= )
 )"
 DEPEND="${RDEPEND} test? ( dev-cpp/gtest )"
 
@@ -32,7 +34,8 @@ src_prepare() {
 src_configure() {
 	econf \
 		$(use_enable static-libs static) \
-		$(use_with ssl openssl)
+		$(use_with ssl openssl) \
+		$(use_with zlib)
 }
 
 src_install() {
