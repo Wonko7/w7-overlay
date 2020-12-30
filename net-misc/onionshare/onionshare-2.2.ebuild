@@ -4,7 +4,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=(python{3_6,3_7,3_8})
+PYTHON_COMPAT=(python3_{6,7,8,9})
 
 DISTUTILS_SINGLE_IMPL=true
 inherit distutils-r1
@@ -19,13 +19,15 @@ KEYWORDS="~amd64"
 IUSE=""
 
 # TODO: check flask-httpauth on each vbump.
-DEPEND="dev-python/PyQt5[${PYTHON_USEDEP}]
-		dev-python/flask[${PYTHON_USEDEP}]
-		dev-python/werkzeug[${PYTHON_USEDEP}]
-		dev-python/urllib3[${PYTHON_USEDEP}]
-		dev-python/requests[${PYTHON_USEDEP}]
-		dev-python/flask-httpauth[${PYTHON_USEDEP}]
-		net-libs/stem[${PYTHON_USEDEP}]
-		${PYTHON_DEPS}"
+DEPEND="
+     $(python_gen_cond_dep '
+        dev-python/PyQt5[${PYTHON_USEDEP}]
+        dev-python/flask[${PYTHON_USEDEP}]
+        dev-python/werkzeug[${PYTHON_USEDEP}]
+        dev-python/urllib3[${PYTHON_USEDEP}]
+        dev-python/requests[${PYTHON_USEDEP}]
+        dev-python/flask-httpauth[${PYTHON_USEDEP}]
+        net-libs/stem[${PYTHON_USEDEP}]
+    ')"
 
 RDEPEND="${DEPEND}"
